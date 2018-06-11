@@ -1367,7 +1367,7 @@ angular.module('myApp.controllers', ['myApp.i18n'])
 
     function updateHistoryPeer (preload) {
       var peerData = AppPeersManager.getPeer(peerID)
-      // console.log('update', preload, peerData)
+       //console.log('update', preload, peerData)
       if (!peerData || peerData.deleted) {
         safeReplaceObject($scope.state, {loaded: false})
         return false
@@ -1379,6 +1379,9 @@ angular.module('myApp.controllers', ['myApp.i18n'])
         id: peerID,
         data: peerData
       })
+
+      //isMutual log by Mamad!
+      //console.warn($scope.historyPeer);
 
       MtpApiManager.getUserID().then(function (myID) {
         $scope.ownID = myID
@@ -4843,7 +4846,10 @@ angular.module('myApp.controllers', ['myApp.i18n'])
         angular.forEach(contactsList, function (userID) {
           var contact = {
             userID: userID,
-            user: AppUsersManager.getUser(userID)
+            user: AppUsersManager.getUser(userID),
+
+            //isMutual by Mamad!
+            isMutual: AppUsersManager.isMutual(userID)
           }
           doneIDs.push(userID)
           $scope.contacts.push(contact)
@@ -4870,9 +4876,12 @@ angular.module('myApp.controllers', ['myApp.i18n'])
                 userID: peerID,
                 user: AppUsersManager.getUser(peerID),
                 peerString: AppUsersManager.getUserString(peerID),
-                found: i >= myPeersLen
+                found: i >= myPeersLen,
+                
+                //isMutual by Mamad!
+                //isMutual: AppUsersManager.isMutual(peerID)
               })
-            })
+            }) 
           }, function (error) {
             if (error.code == 400) {
               error.handled = true

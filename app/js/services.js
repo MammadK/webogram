@@ -210,6 +210,12 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
       return users[id] && users[id].pFlags.bot
     }
 
+    //Get mutual contact by Mamad!
+    function isMutual (id) {
+      var user = getUser(id)
+      return user.pFlags.mutual_contact
+    }
+
     function hasUser (id, allowMin) {
       var user = users[id]
       return angular.isObject(user) && (allowMin || !user.pFlags.min)
@@ -499,6 +505,10 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
       getUserSearchText: getUserSearchText,
       hasUser: hasUser,
       isBot: isBot,
+
+      //isMutual by Mamad!
+      isMutual: isMutual,
+      
       importContact: importContact,
       importContacts: importContacts,
       deleteContacts: deleteContacts,
@@ -508,7 +518,7 @@ angular.module('myApp.services', ['myApp.i18n', 'izhukov.utils'])
       openImportContact: openImportContact
     }
   })
-
+///////
   .service('PhonebookContactsService', function ($q, $modal, $sce, FileManager) {
     return {
       isAvailable: isAvailable,

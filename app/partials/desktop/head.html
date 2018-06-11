@@ -100,10 +100,17 @@
           <a class="tg_head_btn" ng-switch-default ng-click="showPeerInfo()">
             <div class="tg_head_peer_info">
               <span class="tg_head_peer_title" my-peer-link="historyPeer.id" peer-watch="true" dir="auto" for-dialog="true"></span>
+
+
+
               <span class="tg_head_peer_status" ng-switch="historyPeer.id > 0">
                 <span ng-switch-when="true" my-user-status="historyPeer.id" for-dialog="true"></span>
                 <span ng-switch-default my-chat-status="-historyPeer.id"></span>
               </span>
+              
+              <!-- isMutual by Mamad! -->
+              <i ng-if="historyPeer.data.pFlags.mutual_contact" style="margin-left: 30px; background-color: white; border-radius: 50%;" class="icon icon-new-group"></i>
+
             </div>
           </a>
 

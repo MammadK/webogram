@@ -342,6 +342,7 @@ function safeReplaceObject (wasObject, newObject) {
       wasObject[key] = newObject[key]
     }
   }
+
 }
 
 function listMergeSorted (list1, list2) {

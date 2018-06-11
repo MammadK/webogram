@@ -16,6 +16,11 @@
       <div class="peer_modal_profile">
         <div class="peer_modal_profile_name" my-peer-link="user.id" verified="true"></div>
         <div class="peer_modal_profile_description" my-user-status="::user.id"></div>
+        
+        
+        <!-- isMutual by Mamad! -->
+        <i ng-if="user.pFlags.mutual_contact" style="background-color: white; border-radius: 50%;position: absolute; top: 145px;" class="icon icon-new-group"></i>
+
       </div>
     </div>
   </div>

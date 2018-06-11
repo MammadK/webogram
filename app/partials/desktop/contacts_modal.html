@@ -45,10 +45,17 @@
 
                 <div class="md_modal_list_peer_photo pull-left" my-peer-photolink="::contact.userID" img-class="md_modal_list_peer_photo"></div>
                 <div class="md_modal_list_peer_name" my-peer-link="contact.userID"></div>
+                
+                  
+
                 <div class="md_modal_list_peer_description" ng-switch="contact.found">
                   <span ng-switch-when="true" ng-bind="'@' + contact.user.username"></span>
                   <span ng-switch-default my-user-status="::contact.userID"></span>
                 </div>
+
+                <!-- isMutual by Mamad! -->
+                <i ng-if="contact.isMutual" style="position: absolute; right: 20px; bottom: 20px;" class="icon icon-new-group"></i></div>
+
 
               </a>
             </li>
